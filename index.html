@@ -30,6 +30,29 @@
 	</div>
 
 	<script>
+		// Replace the spreadsheetId and range with your own values
+const spreadsheetId = '1_r9zPr2ChlW70VJfI5GsiCTqeJtxB-jALr6rZbl21Ng';
+const range = 'Sheet1!B4';
+
+// Replace the apiKey with your own API key
+const apiKey = 'AIzaSyBpqFwb8Lj5WTJE0ldazYBKs5u_BC6BB7k';
+
+// Construct the URL to retrieve the spreadsheet data
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
+// Fetch the spreadsheet data
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    const rows = data.values;
+    console.log(rows);
+    // Do something with the rows of data, e.g. display them on your website
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+
 		// Update the progress bar every 15 minutes
 		setInterval(updateProgressBar, 900000); 
 
